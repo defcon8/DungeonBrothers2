@@ -155,6 +155,13 @@ void cGame::commonEvents(SDL_Event *event){
 	                	break;
 	            }
 	  			break;
+	  		case SDL_WINDOWEVENT:
+	  			switch (event->window.event) {
+	  				case SDL_WINDOWEVENT_CLOSE:
+			            cWorld::getInstance()->done = true;
+			            break;
+				  }
+				  break;
             case SDL_QUIT:
                 done = true;
                 break;

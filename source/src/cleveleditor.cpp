@@ -163,17 +163,9 @@ void cLevelEditor::drawSpriteSelector(){
 	int tilerow = getTileRow(mousey, tileheight);
 	int rectx = (tilecol * tilewidth);
 	int recty = (tilerow * tileheight);
-	int xoffset=0,yoffset=0;
-
-	 // Because of the screenscrolling you need to know the offset in pixels before we can exactly calculate on which tile the mouse cursor is. But
-	// we dont want to do this when the sprite picker is shown, because that is always statis align from the upper left corner (0,0).
-	if (!showspritepalet) {
-	    xoffset = (-(cWorld::getInstance()->cam->x)%tilewidth);
-	    yoffset = (-(cWorld::getInstance()->cam->y)%tileheight);
-	}
 	
 	/* Draw the sprite selector square */
-	drawRectangle(rectx-xoffset, recty-yoffset, tilewidth, tileheight, 255, 0, 0, 128);
+	drawRectangle(rectx, recty, tilewidth, tileheight, 255, 0, 0, 128);
 }
 
 
