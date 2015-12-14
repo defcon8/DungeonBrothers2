@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string>
 #include <zlib.h>
-
 #include "../include/cdecompress.h"
 
 // TODO: Improve error reporting by showing these errors in the user interface

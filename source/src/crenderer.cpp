@@ -29,6 +29,7 @@ bool cRenderer::init(){
     // Setup logical display size
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");  
 	SDL_RenderSetLogicalSize(handle, cWorld::getInstance()->config->displaywidth, cWorld::getInstance()->config->displayheight);
+    SDL_SetRenderDrawBlendMode(handle,SDL_BLENDMODE_BLEND);
     
     // Fill background with black
     SDL_SetRenderDrawColor(handle, 0, 0, 0, 255);

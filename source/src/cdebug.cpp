@@ -57,7 +57,7 @@ int cDebug::connectToServer()
 
 void cDebug::sendTraceItems()
 {
-    string traceitems("Audio,Bullit,checkDirectionCollision,Config,Construct,Deconstruct,Disk,Events,getHorScanPos,Gravity,Init,Jump,Menu,Mode,Objects,Options,pixelIsTransparant,Render,Slopes,Sprite,Texture,TMXDoc,TTF");
+    string traceitems("Audio,Bullit,checkDirectionCollision,Config,Construct,Deconstruct,Disk,Events,getHorScanPos,Gravity,Init,Jump,Menu,Mode,Objects,Options,pixelIsTransparant,Render,Slopes,Sprite,Texture,TTF");
     send(debugsocket,(char*)&command[3],1, 0);
     send(debugsocket,traceitems.c_str(),traceitems.size(), 0);
     send(debugsocket,(char*)&command[4],1, 0);

@@ -40,7 +40,7 @@ void cLevelEditor::loadPickerSource(string filename){
 
 void cLevelEditor::init(){
 	showspritepalet = false;
-	pickercols = 2;
+	pickercols = 3;
 	tilewidth = 0;
 	tileheight = 0;
 	scrollbarwidth = 20;
@@ -54,7 +54,8 @@ void cLevelEditor::drawSpritePicker(){
 	drawSpritePickerTiles();
 }
 
-void cLevelEditor::drawSpritePickerTiles(){
+void cLevelEditor::drawSpritePickerTiles(){	
+	
 	int pickerdialogwidth = (pickercols*tilewidth) + scrollbarwidth;
 	int initialx = cWorld::getInstance()->config->displaywidth - pickerdialogwidth;
 	int tilex = initialx;
@@ -99,7 +100,6 @@ void cLevelEditor::drawSpritePickerScrollBar(){
 }
 
 void cLevelEditor::drawSpritePickerPanel(){
-	
 	int pickerdialogwidth = (pickercols*tilewidth) + scrollbarwidth;
 	
 	/* Sprite picker plane backcolor = darkgray */
@@ -150,6 +150,48 @@ int cLevelEditor::getTileRow(int y, int tileheight)
 
 void cLevelEditor::render(){
 	drawSpritePicker();
+	drawSpriteSelector();
+}
+
+void cLevelEditor::drawSpriteSelector(){
+	//	// Get position of mouse and calculate the according position in tiles/rows
+	int mousex, mousey;
+	int mousebuttons = SDL_GetMouseState(&mousex, &mousey);
+	int tilewidth = cWorld::getInstance()->level->levellayer->getSpriteWidth();
+	int tileheight = cWorld::getInstance()->level->levellayer->getSpriteHeight();
+	int tilecol = getTileCol(mousex, tilewidth);
+	int tilerow = getTileRow(mousey, tileheight);
+	int rectx = (tilecol * tilewidth);
+	int recty = (tilerow * tileheight);
+	int xoffset=0,yoffset=0;
+
+	 // Because of the screenscrolling you need to know the offset in pixels before we can exactly calculate on which tile the mouse cursor is. But
+	// we dont want to do this when the sprite picker is shown, because that is always statis align from the upper left corner (0,0).
+	if (!showspritepalet) {
+	    xoffset = (-(cWorld::getInstance()->cam->x)%tilewidth);
+	    yoffset = (-(cWorld::getInstance()->cam->y)%tileheight);
+	}
+	
+	/* Draw the sprite selector square */
+	drawRectangle(rectx-xoffset, recty-yoffset, tilewidth, tileheight, 255, 0, 0, 128);
+}
+
+
+void cLevelEditor::drawRectangle(int left, int top, int width, int height, int r, int g, int b, int a){
+	/* Sprite picker plane backcolor = red */
+	SDL_SetRenderDrawColor(cWorld::getInstance()->renderer->handle, r, g, b, a);
+	
+	/* Create position rectangle */
+	SDL_Rect rect;
+    rect.x = left;
+    rect.y = top;
+    rect.w = width;
+    rect.h = height;
+    
+	SDL_RenderFillRect(cWorld::getInstance()->renderer->handle, &rect);
+	
+	/* Set default render color back to black */
+	SDL_SetRenderDrawColor(cWorld::getInstance()->renderer->handle, 0, 0, 0, 255);
 }
 
 void cLevelEditor::render2(){

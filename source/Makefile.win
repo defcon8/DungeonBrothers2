@@ -1,15 +1,15 @@
 # Project: DungeonBrothers2
-# Makefile created by Dev-C++ 5.8.3
+# Makefile created by Dev-C++ 5.10
 
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
 RES      = DungeonBrothers2_private.res
-OBJ      = src/main.o src/cgame.o src/cdebug.o src/crenderer.o src/cworld.o src/cwindow.o src/csprite.o src/cspriteslope.o src/ctexture.o src/clevel.o src/cspritelayer.o src/clevelobject.o src/cconfig.o src/cfunctions.o src/ccamera.o src/cplayer.o src/cbullit.o src/cmenu.o src/cmenuitem.o src/cleveleditor.o src/ctmxdoc.o src/cdecompress.o src/cbase64.o $(RES)
-LINKOBJ  = src/main.o src/cgame.o src/cdebug.o src/crenderer.o src/cworld.o src/cwindow.o src/csprite.o src/cspriteslope.o src/ctexture.o src/clevel.o src/cspritelayer.o src/clevelobject.o src/cconfig.o src/cfunctions.o src/ccamera.o src/cplayer.o src/cbullit.o src/cmenu.o src/cmenuitem.o src/cleveleditor.o src/ctmxdoc.o src/cdecompress.o src/cbase64.o $(RES)
-LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -ltinyxml -lSDL2_ttf -lBox2D -lws2_32 -m32 -g3
-INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
-CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+OBJ      = src/main.o src/cgame.o src/cdebug.o src/crenderer.o src/cworld.o src/cwindow.o src/csprite.o src/cspriteslope.o src/ctexture.o src/clevel.o src/cspritelayer.o src/clevelobject.o src/cconfig.o src/cfunctions.o src/ccamera.o src/cplayer.o src/cbullit.o src/cmenu.o src/cmenuitem.o src/cleveleditor.o $(RES)
+LINKOBJ  = src/main.o src/cgame.o src/cdebug.o src/crenderer.o src/cworld.o src/cwindow.o src/csprite.o src/cspriteslope.o src/ctexture.o src/clevel.o src/cspritelayer.o src/clevelobject.o src/cconfig.o src/cfunctions.o src/ccamera.o src/cplayer.o src/cbullit.o src/cmenu.o src/cmenuitem.o src/cleveleditor.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lws2_32 -m32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
 BIN      = ../DungeonBrothers2.exe
 CXXFLAGS = $(CXXINCS) -m32 -g3
 CFLAGS   = $(INCS) -m32 -g3 -Dmain=SDL_main
@@ -84,15 +84,6 @@ src/cmenuitem.o: src/cmenuitem.cpp
 
 src/cleveleditor.o: src/cleveleditor.cpp
 	$(CPP) -c src/cleveleditor.cpp -o src/cleveleditor.o $(CXXFLAGS)
-
-src/ctmxdoc.o: src/ctmxdoc.cpp
-	$(CPP) -c src/ctmxdoc.cpp -o src/ctmxdoc.o $(CXXFLAGS)
-
-src/cdecompress.o: src/cdecompress.cpp
-	$(CPP) -c src/cdecompress.cpp -o src/cdecompress.o $(CXXFLAGS)
-
-src/cbase64.o: src/cbase64.cpp
-	$(CPP) -c src/cbase64.cpp -o src/cbase64.o $(CXXFLAGS)
 
 DungeonBrothers2_private.res: DungeonBrothers2_private.rc 
 	$(WINDRES) -i DungeonBrothers2_private.rc -F pe-i386 --input-format=rc -o DungeonBrothers2_private.res -O coff 

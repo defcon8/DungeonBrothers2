@@ -1,15 +1,11 @@
 #include "../include/cdebug.h"
 #include "../include/clevel.h"
 #include "../include/cworld.h"
-#include "../include/ctmxdoc.h"
 #include <fstream>
 
 cLevel::cLevel()
 {
 	TRACE("Construct","cLevel()");
-	cTMXDoc *tmx;
-	tmx = new cTMXDoc();
-	tmx->load();
 }
 
 cLevel::~cLevel()

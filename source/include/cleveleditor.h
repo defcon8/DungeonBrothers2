@@ -12,7 +12,9 @@ class cLevelEditor
 		void drawSpritePickerPanel();
 		void drawSpritePickerScrollBar();
 		void drawSpritePickerTiles();
+		void drawSpriteSelector();
 		void loadPickerSource(string filename);
+		void drawRectangle(int left, int top, int width, int height, int r, int g, int b, int a);
 		
 		void render2();
 		int getTileCol(int x, int tilewidth);
